@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EMS</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/guest.css' %}?{% now "u" %}">
+</head>
+
+<body>
+<h1>WELCOME TO ENERGY MANAGEMENT SYSTEM</h1>
+<hr size="2" width="100%" color="RED">
+
+<div class="navbar">
+    <div class="dropdown">
+        <button class="drop_btn">Admin</button>
+            <div class="dropdown_content">
+                <a href="{% url 'Admin1' %}">Approve & Running Minute Save</a>
+                <a href="{% url 'Admin2' %}">Report Entry</a>
+            </div>
+    </div>
+    <div class="dropdown">
+        <button class="drop_btn">CHP</button>
+            <div class="dropdown_content">
+                <a href="#">CHP Shift Log</a>
+                <a href="#">CHP Rake Detail</a>
+                <a href="#">Download Coal Rake Details to Excel</a>
+                <a href="#">Coal Yard Stock with GCV (ARB)</a>
+                <a href="#">Coal Reclaiming Details</a>
+                <a href="#">Coal Rake Delay Time Break-up</a>
+                <a href="#">Coal Energy Meter & Belt Weigher Reading</a>
+                <a href="#">Coal Handling Specific Energy</a>
+                <a href="#">Coal Consumption Comparison</a>
+                <a href="#">Coal In-motion Weigh Bridge Data Entry</a>
+                <a href="#">Coal RR Weight Data Entry</a>
+            </div>
+    </div>
+
+    <div class="dropdown1">
+        {% if request.session.user %}
+        <a href="{% url 'login' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+</div>
+
+<div style="margin-top:1px;">
+<fieldset class="d1">
+    <legend style="background:grey">Reference Number</legend>
+    <font size="2"><table>
+    <tr><td>PIMS Rake No.</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>Forwarding No.</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>Forwarding Date</td><td><input style="height:15px;width:125px;" type="Date"></td></tr>
+    <tr><td>Bill No.</td><td><input style="height:10px; width:122px;"  type="number"></td></tr>
+    <tr><td>Bill Date.</td><td><input style="height:15px; width:125px;" type="Date"></td></tr>
+    <tr><td>Invoice No.</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>Invoice Date</td><td><input style="height:15px; width:125px;" type="Date"></td></tr>
+    <tr><td>Rly Receipt No.</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>Rly Receipt Date</td><td><input style="height:15px; width:125px;" type="Date"></td></tr>
+    <tr><td>Sample Reference</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    </table></font>
+</fieldset>
+</div>
+
+<div style="margin-left:19%; margin-top:-237.5px;">
+<fieldset class="d2">
+    <legend style="background:grey">Loading Data</legend>
+    <font size="2"><table>
+    <tr><td>Loading Date</td><td><input style="height:15px; width:125px;" type="Date"></td></tr>
+    <tr><td>Colliery</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>Company</td><td><input style="height:10px; width:122px;" type="Text"></td></tr>
+    <tr><td>Bill Grade</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>No. of Wagon</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>No. of Sample</td><td><input style="height:10px; width:122px;" type="number"></td></tr>
+    <tr><td>Area</td><td><input style="height:10px; width:122px;" type="Text"></td></tr>
+    </table></font>
+</fieldset>
+</div>
+
+</body>
+</html>
+

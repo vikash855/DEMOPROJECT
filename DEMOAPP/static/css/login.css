@@ -1,0 +1,114 @@
+div.align {
+  style=border:solid thick black; border-radius:1em;border-width:1px;
+padding-left:0px;padding-right:0px;
+padding-top:0px;padding-bottom:5px;
+width:450px;background:white;margin-left:450px;margin-top:0px;
+opacity: 0.9;
+}
+/* title */
+h1 {
+  color: white;
+  text-align: center;
+  font-style: normal;
+  font-size: 35px;
+}
+/* username */
+ p.username {
+  padding-top: 0cm;
+  text-align: center;
+}
+/* Password */
+ p.password {
+  padding-top: 0cm;
+  text-align: center;
+}
+/* forgot Password */
+h2{
+font-weight: normal;
+font-size: 15px;
+color: grey;
+text-align: center;
+padding-left: 200px;
+}
+/* login */
+h3{
+padding-top: 0px;
+text-align: center;
+}
+/* signup*/
+h4{
+font-weight: normal;
+font-size: 15px;
+color: grey;
+text-align: center;
+}
+
+/* unvisited link */
+a{
+    text-decoration: none;
+    color: blue;
+}
+/* mouse over link */
+a:hover {
+    color: red;
+}
+
+input {
+  width: 60%;
+}
+button{
+ width: 62%;
+ border: 1px solid black;
+ border-radius: 0px;
+ background-color: lightblue;
+ color: blue;
+ font-weight: bold;
+ padding: 5px;
+}
+h5 {
+  padding-top: 0.5cm;
+  font-size: 50px;
+  color: black;
+  text-align: center;
+}
+
+.wrapper{
+    margin-top: 45px;
+    /*max-width: 40px;*/
+    background: lightblue;
+    height: 20px;
+    text-align: center;
+}
+.message{
+    height: 20px;
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.image{
+  /* The image used */
+  background-image: url("../img/background.jpg");
+
+  min-height: 550px;
+
+  /* Center and scale the image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  /* Needed to position the navbar */
+  position: relative;
+
+  /* Add the blur effect */
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+body{
+background: url("../img/bgim.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+background-position: center;
+min-height: 594px;
+}

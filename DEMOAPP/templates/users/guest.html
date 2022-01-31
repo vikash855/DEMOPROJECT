@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EMS</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/guest.css' %}?{% now "u" %}">
+</head>
+
+<body>
+<h1>WELCOME TO ENERGY MANAGEMENT SYSTEM</h1>
+<hr size="2" width="100%" color="RED">
+
+<div class="navbar">
+    <div class="dropdown">
+        <button class="drop_btn">Admin</button>
+            <div class="dropdown_content">
+                <a href="{% url 'Admin1' %}">Approve & Running Minute Save</a>
+                <a href="{% url 'Admin2' %}">Report Entry</a>
+            </div>
+    </div>
+    <div class="dropdown">
+        <button class="drop_btn">CHP</button>
+            <div class="dropdown_content">
+                <a href="#">CHP Shift Log</a>
+                <a href="#">CHP Rake Detail</a>
+                <a href="#">Download Coal Rake Details to Excel</a>
+                <a href="#">Coal Yard Stock with GCV (ARB)</a>
+                <a href="#">Coal Reclaiming Details</a>
+                <a href="#">Coal Rake Delay Time Break-up</a>
+                <a href="#">Coal Energy Meter & Belt Weigher Reading</a>
+                <a href="#">Coal Handling Specific Energy</a>
+                <a href="#">Coal Consumption Comparison</a>
+                <a href="#">Coal In-motion Weigh Bridge Data Entry</a>
+                <a href="{% url 'CHP11' %}">Coal RR Weight Data Entry</a>
+            </div>
+    </div>
+
+    <div class="dropdown1">
+        {% if request.session.user %}
+        <a href="{% url 'login' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
+
