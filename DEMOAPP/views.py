@@ -63,7 +63,7 @@ def Entryview(request):
     else:
         return render(request, 'users/Plant/Entry.html')
 
-def CHP11view(request):
+def CHP13view(request):
     if request.method == "POST":
         return render(request, 'users/Plant/RRWeight.html')
     else:
