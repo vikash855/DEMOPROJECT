@@ -1,7 +1,7 @@
 div.align {
  style=border:solid thick black; border-radius:1em;border-width:1px;
 padding-left:0px;padding-right:0px;
-padding-top:0px;padding-bottom:5px;
+padding-top:0px;padding-bottom:50px;
 width:450px;background:white;
 position absolute;
 margin:auto;
@@ -87,8 +87,33 @@ background: url("../img/bgim.jpg");
 background-repeat: no-repeat;
 background-size: cover cover;
 background-position: center center;
-}*/
+} used for set image on html page*/
 
-.bg{
-background-size: cover cover;
+.guest_button, .sign_register_button, .sign_forgot_button{
+position: absolute;
+font-size: 14px;
+text-align: center;
+background-color: lightblue;
+font-weight: bold;
+font-family: Arial;
+border: none;
+outline: none;
+padding: 6px 0px;
+
+}
+
+.guest_button a {
+  color: Blue;
+  padding: 6px 175.5px;
+  text-decoration: none;
+}
+.sign_register_button a {
+  color: blue;
+  padding: 6px 201.6px;
+  text-decoration: none;
+}
+.sign_forgot_button a {
+  color: Blue;
+  padding: 6px 201.6px;
+  text-decoration: none;
 }

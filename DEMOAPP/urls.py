@@ -10,7 +10,6 @@ urlpatterns = [
     path('forgot/', views.forgotview, name='forgot'),
     path('Approve & Running Minute Save/', views.Approveview, name='Admin1'),
     path('Report Entry/', views.Entryview, name='Admin2'),
-
     path('CHP Shift Log/', views.CHP11view, name='CHP11'),
 
 ]

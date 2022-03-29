@@ -6,6 +6,11 @@
 <head>
     <title>EMS</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}?{% now "u" %}">
+    <style>
+    body {
+    background-image: url('{% static '/img/bgim.jpg' %}');
+    }
+    </style>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
 <hr size="2" width="100%" color="RED">
 
 <div class="align">
-    <h5>EMS REGISTER</h5>
+    <h5>REGISTER</h5>
 <form action="" method="POST" >
     {% csrf_token %}
 
@@ -29,7 +34,7 @@
     {% endfor %}
     {% endif %}
  </form>
-    <h4><a href="{% url 'login' %}">Sign in</a></h4>
+    <div class="sign_register_button"><a href="{% url 'login' %}">Sign in</a></div>
 </div>
 </body>
 </html>

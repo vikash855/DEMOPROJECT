@@ -4,8 +4,13 @@
 <head>
     <title>EMS</title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}?{% now "u" %}" />
+<!--<div class="bg"><img src="{% static '/img/bgim.jpg' %}" ></div>  used for   -->
+    <style>
+    body {
+    background-image: url('{% static '/img/bgim.jpg' %}');
+    }
+    </style>
 </head>
-<div class="bg"><img src="{% static '/img/bgim.jpg' %}" ></div>
 <body>
 <h1>ENERGY MANAGEMENT SYSTEM</h1>
 
@@ -29,7 +34,7 @@
  </form>
 
 <h4>Don't have an account? <a href="{% url 'reg' %}">Sign up</a></h4>
-<h3><button><a href="{% url 'guest' %}">Enter as Guest</a></button></h3>
+<div class="guest_button"><a href="{% url 'guest' %}">Enter as Guest</a></div>
 </div>
 
 </body>

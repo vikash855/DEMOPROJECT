@@ -4,9 +4,11 @@ from django.contrib import messages
 
 
 def guest(request):
-   request.session.clear()
-   return render(request, 'users/guest.html')
-
+    if request.method == "POST":
+     request.session.clear()
+     return render(request, 'users/guest.html')
+    else:
+     return render(request, 'users/guest.html')
 
 # if i want to render html page without auth
 def loginpage(request):
@@ -19,6 +21,7 @@ def loginpage(request):
             messages.success(request, "User / Password Invalid")
             return render(request, 'users/login.html')
     else:
+        messages.success(request, "")
         return render(request, 'users/login.html')
 
 
@@ -63,7 +66,7 @@ def Entryview(request):
     else:
         return render(request, 'users/Plant/Entry.html')
 
-def CHP13view(request):
+def CHP11view(request):
     if request.method == "POST":
         return render(request, 'users/Plant/RRWeight.html')
     else:
