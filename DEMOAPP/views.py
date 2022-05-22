@@ -8,16 +8,17 @@ def guest(request):
      request.session.clear()
      return render(request, 'users/guest.html')
     else:
+     request.session.clear()
      return render(request, 'users/guest.html')
 
 # if i want to render html page without auth
 def loginpage(request):
     if request.method == "POST":
         try:
-            userdetails = RegisterData.objects.get(user=request.POST['user'], password=request.POST['password'])
-            request.session['user'] = userdetails.user
+            logindetails = RegisterData.objects.get(user=request.POST['user'], password=request.POST['password'])
+            request.session['user'] = logindetails.user
             return render(request, 'users/guest.html')
-        except RegisterData.DoesNotExist as e:
+        except RegisterData.DoesNotExist:
             messages.success(request, "User / Password Invalid")
             return render(request, 'users/login.html')
     else:
@@ -29,27 +30,32 @@ def registerdata(request):
     if request.method == 'POST':
         user = request.POST['user']
         password = request.POST['password']
-        RegisterData(user=user, password=password).save()
-        messages.success(request, 'the new user '+request.POST['user']+" Register Successfully")
-        return render(request, 'users/register.html')
+        try:
+            RegisterData.objects.get(user=request.POST['user'])
+            messages.success(request, "User Already Exist!")
+            return render(request, 'users/register.html')
+        except RegisterData.DoesNotExist:
+            RegisterData(user=user, password=password).save()
+            messages.success(request, 'the new user '+request.POST['user']+" Register Successfully" )
+            return render(request, 'users/register.html')
     else:
         return render(request, 'users/register.html')
 
 
 def forgotview(request):
     if request.method == "POST":
-            users = request.POST['user']
-            password1 = request.POST['password']
-            password2 = request.POST['password1']
-            userdetails = RegisterData.objects.get(user=request.POST['user'])
-            if (password1 == password2 or users == userdetails):
+        if (request.POST['password'] == request.POST['password1']):
+            try:
+                RegisterData.objects.get(user=request.POST['user'])
                 RegisterData.objects.filter(user=request.POST['user']).update(password=request.POST['password'])
-                messages.success(request, "password Change Successfully")
+                messages.success(request, "Password Change Successfully")
                 return render(request, 'users/forgot.html')
-            else:
-                messages.success(request, "Password is not same")
+            except RegisterData.DoesNotExist:
+                messages.success(request, "User Does't Exist!")
                 return render(request, 'users/forgot.html')
-
+        else:
+            messages.success(request, "User/Password not matched")
+            return render(request, 'users/forgot.html')
     else:
         return render(request, 'users/forgot.html')
 
@@ -71,5 +77,3 @@ def CHP11view(request):
         return render(request, 'users/Plant/RRWeight.html')
     else:
         return render(request, 'users/Plant/RRWeight.html')
-
-
