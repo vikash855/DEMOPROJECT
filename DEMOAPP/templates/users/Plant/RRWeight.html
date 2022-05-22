@@ -40,8 +40,6 @@
     <div class="dropdown1">
         {% if request.session.user %}
         <a href="{% url 'login' %}">Logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
         {% endif %}
     </div>
 </div>
